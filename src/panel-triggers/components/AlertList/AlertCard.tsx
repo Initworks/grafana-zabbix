@@ -36,8 +36,9 @@ export default class AlertCard extends PureComponent<AlertCardProps> {
 
   render() {
     const { problem, panelOptions } = this.props;
-    const showDatasourceName = panelOptions.targets && panelOptions.targets.length > 1;
-    const cardClass = cx('alert-rule-item', 'zbx-trigger-card', {
+    // Newer versions of Grafana split out panel options and do not provide all attributes such as .targets
+    //const showDatasourceName = panelOptions.targets && panelOptions.targets.length > 1;
+    const showDatasourceName = true;    const cardClass = cx('alert-rule-item', 'zbx-trigger-card', {
       'zbx-trigger-highlighted': panelOptions.highlightBackground,
     });
     const descriptionClass = cx('alert-rule-item__text', {
